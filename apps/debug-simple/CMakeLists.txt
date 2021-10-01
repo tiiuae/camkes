@@ -11,7 +11,7 @@ project(debug-simple C)
 find_package(camkes-tool REQUIRED)
 find_package(seL4_libs REQUIRED)
 find_package(seL4 REQUIRED)
-#includeGlobalComponents()
+includeGlobalComponents()
 
 # We need to preprocess our .camkes spec to insert the debug components
 set(CAmkESCPP ON CACHE BOOL "" FORCE)
