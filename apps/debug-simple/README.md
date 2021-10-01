@@ -16,11 +16,10 @@ repo init -u https://github.com/seL4/camkes-manifest.git
 # repo has been initialized in blah
 repo sync
 # Fetching projects: 100% (10/10), done.
-make x86_debug_simple_defconfig
-#
-# configuration written to .config
-#
-make # -j 8
+mkdir build
+cd build
+../init-build.sh -DPLATFORM=pc99 -DKernelSel4Arch=ia32 -DSIMULATION=1 -DCAMKES_APP=debug-simple
+ninja
 # [GEN_IMAGE] capdl-loader-experimental-image
 
 qemu-system-i386 -nographic -m 512 -cpu Haswell \
